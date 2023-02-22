@@ -35,3 +35,13 @@ header {
 .grid-child {
     width: 30%;
 }
+
+.player1 {
+    background-color: steelblue;
+    width: 30%;
+}
+
+.player2 {
+    background-color: aquamarine;
+    width: 30%;
+}
