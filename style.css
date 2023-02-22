@@ -1,8 +1,37 @@
 
 /* 
-
+=====================================
 Purpose: tic-tac-toe game css file
-By: BigBBazz
-Date: 22/02/2023
 
+By: BigBBazz
+
+Date created: 22/02/2023
+
+Latest edit date:
+=====================================
 */
+
+* {
+    box-sizing: border-box ;
+    border: 1px solid red;
+}
+
+html, body {
+    margin: 0px;
+}
+
+header {
+    text-align: center;
+}
+
+.grid-parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 250px;
+    margin: auto;
+}
+
+.grid-child {
+    width: 30%;
+}
