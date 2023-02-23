@@ -57,7 +57,7 @@ function checkForWinner() {
 
         return false;
     }
-
+    
     if (roundCounter % 2 !== 0) {
         
         if (player1Selections.length>=3) {
