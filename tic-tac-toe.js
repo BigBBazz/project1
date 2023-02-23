@@ -9,19 +9,133 @@
 // Latest edit date:
 // =====================================
 
+// ============= Phase 1 Code ==================
+
+const setupInterface = document.querySelector('.setup-interface');
+const setupParent = document.querySelector('.setup-parent');
+const IconButtons = document.querySelectorAll('.material-icons');
+const readyToPlayButton = document.querySelector('.readyToPlay');
+const player1Image = document.querySelector('.player1image');
+const player2Image = document.querySelector('.player2image');
+
+let randomNumber;
+let clickEventIndicator = 0;
+let player1Icon;
+let player2Icon;
+
+
+
+function randomNumberFunc() {
+  
+    return Math.round(Math.random());
+}
+
+
+function handleUserIconClick(event) {
+
+    let IcondClicked = event.target;
+
+    IcondClicked.style.height= "30%";
+
+    if (clickEventIndicator == 0) { 
+
+        randomNumber = randomNumberFunc();
+
+        if (randomNumber == 0) {
+            
+            player1Icon =  IcondClicked.src;
+        } else {
+
+            player2Icon = IcondClicked.src;
+        }
+    } else {
+
+        if (randomNumber == 0) {
+            player2Icon =  IcondClicked.src;
+        } else {
+            player1Icon = IcondClicked.src;
+        }
+    }
+
+    clickEventIndicator++;
+}
+
+
+function handleUserHideClick() {
+
+    const setupInterfaceChilds = setupInterface.children;
+    const setupParentChilds = setupParent.children; 
+    
+    const gameInterfaceChilds = gameInterface.children;
+    const gridChilds = grid.children;
+    const trackingInterfaceChilds = trackingInterface.children;
+    const playerChilds = players.children;
+
+
+    const sectionArrays = [setupInterfaceChilds,setupParentChilds,gameInterfaceChilds,gridChilds,trackingInterfaceChilds,playerChilds];
+
+    sectionArrays.forEach(array => {
+        
+        for(let i=0; i<array.length; i++) {
+        
+            array[i].classList.toggle("hide");
+        }
+    });
+
+    player1Image.style.background = `url(${player1Icon})`;
+    player1Image.style.backgroundSize = 'contain';
+    player1Image.style.backgroundRepeat = "no-repeat";
+    player1Image.style.backgroundPosition= "center";
+
+    player2Image.style.background = `url(${player2Icon})`;
+    player2Image.style.backgroundSize = 'contain';
+    player2Image.style.backgroundRepeat = "no-repeat";
+    player2Image.style.backgroundPosition= "center";
+}
+
+
+IconButtons.forEach(IconButton => {
+    
+    IconButton.addEventListener('click', (event) => {
+
+        handleUserIconClick(event);
+    })
+});
+
+
+readyToPlayButton.addEventListener('click', (event) => {
+
+    handleUserHideClick(event);   
+})
+
+
+
+
+
+// ============= Phase 2 Code ==================
+
+const gameInterface = document.querySelector('.game-interface');
 const grid = document.querySelector('.grid-parent');
-
 const buttons = document.querySelectorAll('.grid-child');
-
+const trackingInterface = document.querySelector('.tracking-interface');
+const players = document.querySelector('.players');
+const playAgainButton = document.querySelector('.playAgain');
 const resetButton = document.querySelector('.reset');
-
 const rounds = document.querySelector('.rounds');
-
 const message = document.querySelector('.message');
+const player1WinsTrack = document.querySelector('#player1tracker');
+const player2WinsTrack = document.querySelector('#player2tracker');
+
+
+let player1WinNum = 0;
+
+let player2WinNum = 0;
 
 let roundCounter = 0;
 
-let player1Selections = [1,2,3];
+let totalRoundCounter = 0;
+
+let player1Selections = [];
 
 let player2Selections = [];
 
@@ -36,6 +150,7 @@ buttons.forEach(button => {
     button.setAttribute('data-gridNumber',buttonNumber);
     buttonNumber++;
 });
+
 
 function addSelection(event){
 
@@ -57,7 +172,7 @@ function checkForWinner() {
 
         return false;
     }
-    
+
     if (roundCounter % 2 !== 0) {
         
         if (player1Selections.length>=3) {
@@ -94,7 +209,7 @@ function checkForWinner() {
 
                 let matchCounter = 0;
     
-                for (let player2Selection of player2Selections) { //foreach doesnt work, won't return at line 105 if matchCounter ==3
+                for (let player2Selection of player2Selections) { 
                     
                     if (winnerArrays[winArrIndex].indexOf(player2Selection)>-1) {
 
@@ -113,14 +228,22 @@ function checkForWinner() {
     }    
 }
 
-function checkForDraw() {
-    
-    if (roundCounter == 9){
 
-    message.textContent = `It's a draw!!`;
-    message.style.visibility = 'visibile';
-}
-}
+function checkForDraw() {
+
+    if (roundCounter == 9) {
+
+        message.textContent = `It's a draw!`;
+
+        message.style.visibility = 'visible';
+
+        playAgainButton.style.visibility = 'visible';
+
+        resetButton.style.visibility = 'visible';
+    }
+} 
+
+
 
 function handleUserClick(event) {
 
@@ -135,10 +258,22 @@ function handleUserClick(event) {
 
     roundCounter++;
 
-    buttonClicked.classList.toggle("player1", roundCounter % 2 !== 0);
+    if (roundCounter % 2 !== 0) {
 
-    buttonClicked.classList.toggle("player2", roundCounter % 2 == 0);
+        buttonClicked.style.background = `url(${player1Icon})`;
+        buttonClicked.style.backgroundSize = 'contain';
+        buttonClicked.style.backgroundRepeat = "no-repeat";
+        buttonClicked.style.backgroundPosition= "center";
+
+    } else {
+
+        buttonClicked.style.background = `url(${player2Icon})`;
+        buttonClicked.style.backgroundSize = 'contain';
+        buttonClicked.style.backgroundRepeat = "no-repeat";
+        buttonClicked.style.backgroundPosition= "center";
+    }
 }
+
 
 buttons.forEach(button => {
 
@@ -154,15 +289,27 @@ buttons.forEach(button => {
     
         if(checkForWinner()) {
     
+            playAgainButton.style.visibility = 'visible';
+
             resetButton.style.visibility = 'visible';
-    
+            
             if (roundCounter % 2 !== 0) {
     
-                message.textContent = `Player 1 - WINNER`;
+                message.textContent = `Player 1 is the WINNER`;
+
+                player1WinNum++;
+
+                player1WinsTrack.textContent = `Player 1 wins: ${player1WinNum}`
             } else {
     
-                message.textContent = `Player 2 - WINNER`;   
+                message.textContent = `Player 2 is the WINNER`;
+                
+                player2WinNum++;
+
+                player2WinsTrack.textContent = `Player 2 wins: ${player2WinNum}`;
             } 
+
+            message.style.visibility = 'visible';
         };
 
         checkForDraw();
@@ -170,20 +317,58 @@ buttons.forEach(button => {
 });
 
 
+playAgainButton.addEventListener('click', () => {
+    
+    roundCounter = 0;
+    player1Selections.length = 0;
+    player2Selections.length = 0;
+    buttonNumber == 1;
+    randomNumber = null;
+    clickEventIndicator = 0;
+
+    buttons.forEach(button => {
+        button.style.background = "";
+        button.disabled = false;
+        button.replaceChildren();
+    });
+
+    rounds.style.visibility = 'hidden';
+    message.style.visibility = 'hidden';
+    playAgainButton.style.visibility = 'hidden';
+    resetButton.style.visibility = 'hidden';
+
+});
+
+
 resetButton.addEventListener('click', () => {
 
-let roundCounter = 0;
+    handleUserHideClick();
+    
+    roundCounter = 0;
+    player1WinNum = 0;
+    player1WinNum = 0;
+    player1Selections.length = 0;
+    player2Selections.length = 0;
+    buttonNumber == 1;
+    randomNumber = null;
+    clickEventIndicator = 0;
+    player1Icon = null;
+    player2Icon = null;
 
-let player1Selections = [];
+    buttons.forEach(button => {
+        button.style.background = "";
+        button.disabled = false;
+        button.replaceChildren();
+    });
 
-let player2Selections = [];
+    IconButtons.forEach(IconButton => {
+        IconButton.style.height = "35%";
+    });
 
-rounds.style.visibility = 'hidden';
-
-message.style.visibility = 'hidden';
-
-resetButton.style.visibility = 'hidden';
-})
-
-
-
+    rounds.style.visibility = 'hidden';
+    message.style.visibility = 'hidden';
+    playAgainButton.style.visibility = 'hidden';
+    resetButton.style.visibility = 'hidden';
+    player1WinsTrack.textContent = `Player 1 wins: ${player2WinNum}`;
+    player2WinsTrack.textContent = `Player 2 wins: ${player2WinNum}`;
+});

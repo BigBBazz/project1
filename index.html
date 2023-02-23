@@ -8,28 +8,71 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
     <header>Tic-Tac-Toe</header>
 
-    <div class="grid-parent">
-        <button class="grid-child">1</button>
-        <button class="grid-child">2</button>
-        <button class="grid-child">3</button>
-        <button class="grid-child">4</button>
-        <button class="grid-child">5</button>
-        <button class="grid-child">6</button>
-        <button class="grid-child">7</button>
-        <button class="grid-child">8</button>
-        <button class="grid-child">9</button>
-    </div>
+    <section class="setup-interface">
+        <h1 class="setup-title">Pick an icon</h1>
+        <div class="setup-parent">
 
-    <p class="rounds">Round number: </p>
+            <img src="https://images.pexels.com/photos/163811/street-art-shipping-container-freight-highway-163811.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" srcset="" class="material-icons">
+      
+            <img src="https://images.pexels.com/photos/953457/pexels-photo-953457.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
 
-    <p class="message"></p>
+            <img src="https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
 
-    <button class="reset">Play Again</button>
+            <img src="https://images.pexels.com/photos/706335/pexels-photo-706335.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
 
-    <footer>&copy; 2023 BigBBazz</footer>
+            <img src="https://images.pexels.com/photos/1707640/pexels-photo-1707640.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
+
+            <img src="https://images.pexels.com/photos/110118/pexels-photo-110118.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
+
+            <img src="https://images.pexels.com/photos/2180803/pexels-photo-2180803.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
+
+            <img src="https://images.pexels.com/photos/908713/pexels-photo-908713.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
+
+            <img src="https://images.pexels.com/photos/1781710/pexels-photo-1781710.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="material-icons">
+   
+        </div>
+
+        <button class="readyToPlay">Click To Play!</button>
+
+    </section>
+<!-- check for clicking on button vs icon!!!! -->
+    <section class="game-interface hide">
+        <h1 class="hide">Game on!</h1>
+        <div class="grid-parent hide">
+            <button class="grid-child hide">1</button>
+            <button class="grid-child hide">2</button>
+            <button class="grid-child hide">3</button>
+            <button class="grid-child hide">4</button>
+            <button class="grid-child hide">5</button>
+            <button class="grid-child hide">6</button>
+            <button class="grid-child hide">7</button>
+            <button class="grid-child hide">8</button>
+            <button class="grid-child hide">9</button>
+        </div>
+
+        <div class = "players  hide">
+            <button class="player1image hide"></button>
+            <p class="winTracker hide" id="player1tracker">Player 1 wins: 0 </p>
+            <button class="player2image hide"></button>
+            <p class="winTracker hide" id="player2tracker">Player 2 wins: 0 </p>
+        </div>
+
+        <div class="tracking-interface  hide">
+            <p class="message hide"></p>
+            <p class="rounds hide">Round number: </p>
+            <button class="playAgain hide">Play Again</button>
+            <button class="reset hide">Reset</button>
+        </div>
+
+        <div class ="endButtons hide">
+            <button class="playAgain hide">Play Again</button>
+            <button class="reset hide">Reset</button>
+        </div>
+
+    </section>
 
     <script src="tic-tac-toe.js"></script>
 

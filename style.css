@@ -11,49 +11,153 @@ Latest edit date:
 =====================================
 */
 
-* {
+/* * {
     box-sizing: border-box ;
     border: 1px solid red;
-}
+} */
 
 html, body {
     margin: 0px;
+    background-color: mistyrose;
 }
 
 header {
     text-align: center;
 }
 
-.grid-parent {
+.setup-title {
+    text-align: center;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.readyToPlay {
+    text-align: center;
+    height: 80px;
+}
+
+.setup-parent {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin: auto;
+    transition-delay: 250ms;  
+}
+
+.material-icons {
+    width: 30%;
+    height: 35%;
+}
+
+.grid-parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
     height: 250px;
     margin: auto;
+    transition-delay: 250ms;
+    transition-property: height;
 }
 
 .grid-child {
+    font-size: 0;
+    padding: 5px;
+    border: solid yellow 5px;
+    background-color: lightgrey;
     width: 30%;
 }
 
-.player1 {
-    background-color: steelblue;
+.defaultGrid {
+    font-size: 0;
+    background-color: lightgrey;
     width: 30%;
 }
 
-.player2 {
-    background-color: aquamarine;
-    width: 30%;
+.tracking-interface {
+
+    margin: auto;
 }
+
+.message {
+    height: 50px;
+    width: 90px;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.player1image {
+    height: 50px;
+    width: 90px;
+    visibility: visible;
+    padding: 0px;
+    border: 0px;
+}
+
+.player2image {
+    height: 50px;
+    width: 90px;
+    visibility: visible;
+    padding: 0px;
+    border: 0px;
+}
+
+
+.winTracker {
+    height: 50px;
+    width: 160px;
+    font-size: 20px;
+    visibility: visible;
+}
+
 
 .rounds {
     height: 50px;
-    width: 90px;
+    width: 150px;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+.players {
+    height: 150px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.endButtons {
+    height: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.playAgain {
+    width: 30%;
+    font-size: 20px;
+    margin: auto;
     visibility: hidden;
 }
 
 .reset {
-    height: 50px;
-    width: 90px;
+    width: 30%;
+    font-size: 20px;
+    margin: auto;
     visibility: hidden;
+}
+
+.hide {
+    height: 0px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    font-size: 0px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 3s;
+    transition-property: height, margin, font-size;
 }
