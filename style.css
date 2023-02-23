@@ -45,3 +45,16 @@ header {
     background-color: aquamarine;
     width: 30%;
 }
+
+.rounds {
+    height: 50px;
+    width: 90px;
+    visibility: hidden;
+}
+
+.reset {
+    height: 50px;
+    width: 90px;
+    visibility: hidden;
+}
+
