@@ -63,6 +63,11 @@ function handleUserIconClick(event) {
 
 function handleUserHideClick() {
 
+    if (clickEventIndicator<2){
+
+        return
+    }
+
     const setupInterfaceChilds = setupInterface.children;
     const setupParentChilds = setupParent.children; 
     
@@ -70,9 +75,11 @@ function handleUserHideClick() {
     const gridChilds = grid.children;
     const trackingInterfaceChilds = trackingInterface.children;
     const playerChilds = players.children;
+    const endButtonChilds = endButtons.children
 
 
-    const sectionArrays = [setupInterfaceChilds,setupParentChilds,gameInterfaceChilds,gridChilds,trackingInterfaceChilds,playerChilds];
+
+    const sectionArrays = [setupInterfaceChilds,setupParentChilds,gameInterfaceChilds,gridChilds,trackingInterfaceChilds,playerChilds,endButtonChilds];
 
     sectionArrays.forEach(array => {
         
@@ -118,6 +125,7 @@ const gameInterface = document.querySelector('.game-interface');
 const grid = document.querySelector('.grid-parent');
 const buttons = document.querySelectorAll('.grid-child');
 const trackingInterface = document.querySelector('.tracking-interface');
+const endButtons = document.querySelector('.endButtons');
 const players = document.querySelector('.players');
 const playAgainButton = document.querySelector('.playAgain');
 const resetButton = document.querySelector('.reset');
@@ -346,9 +354,11 @@ resetButton.addEventListener('click', () => {
     
     roundCounter = 0;
     player1WinNum = 0;
-    player1WinNum = 0;
+    player2WinNum = 0;
     player1Selections.length = 0;
     player2Selections.length = 0;
+    // player1WinsTrack.textContent = `Player 1 wins: ${player1WinNum}`;
+    // player2WinsTrack.textContent = `Player 2 wins: ${player2WinNum}`;
     buttonNumber == 1;
     randomNumber = null;
     clickEventIndicator = 0;
