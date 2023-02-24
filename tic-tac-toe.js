@@ -67,6 +67,8 @@ function handleUserIconClick(event) {
 
 function switchSetupGame() {
 
+    document.querySelector('.feet').classList.toggle("hide");
+
     const setupInterfaceChilds = setupInterface.children;
     const setupParentChilds = setupParent.children; 
     
@@ -303,14 +305,14 @@ buttons.forEach(button => {
 
                 player1WinNum++;
 
-                player1WinsTrack.textContent = `Player 1 wins: ${player1WinNum}`
+                player1WinsTrack.textContent = `Player-1 wins: ${player1WinNum}`
             } else {
     
                 message.textContent = `Player 2 is the WINNER`;
                 
                 player2WinNum++;
 
-                player2WinsTrack.textContent = `Player 2 wins: ${player2WinNum}`;
+                player2WinsTrack.textContent = `Player-2 wins: ${player2WinNum}`;
             } 
 
             message.style.visibility = 'visible';
