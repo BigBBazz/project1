@@ -26,12 +26,14 @@ header {
     font-weight: bold;
     font-size: 40px;
     padding: 10px;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 .setup-title {
     text-align: center;
     height: 60px;
     margin: 0 auto;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 .setup-interface {
@@ -47,15 +49,13 @@ header {
     color: black;
     padding: 15px 32px;
     border-radius: 10%;
+    font-family: "Lucida Console", Courier, monospace;
 }
   
   .readyToPlay:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    font-size: 15px;
+    font-family: "Lucida Console", Courier, monospace;
   }
-
-  /* ------------------------------------------------------------- */
-
 
 .setup-parent {
     display: flex;
@@ -66,12 +66,20 @@ header {
     padding: 0 5% 5% 5%;
     margin: auto;
     transition-delay: 250ms; 
+    transition-property: height;
+    max-width:1500px;
 }
 
 .material-icons {
     width: 30%;
+    max-width:1500px;
     height: 35%;
+    transition-property: height;
 }
+
+
+  /* ------------------------------------------------------------- */
+
 
 .grid-parent {
     display: flex;
@@ -80,6 +88,7 @@ header {
     height: 700px;
     margin: auto;
     transition-delay: 250ms;
+    max-width:1500px;
     transition-property: height;
 }
 
@@ -89,6 +98,8 @@ header {
     border: solid yellow 5px;
     background-color: lightgrey;
     width: 30%;
+    max-width:1500px;
+    transition-property: height;
 }
 
 .defaultGrid {
@@ -113,6 +124,7 @@ header {
     font-size: 20px;
     text-align: center;
     margin: auto;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 .rounds {
@@ -120,6 +132,7 @@ header {
     font-size: 20px;
     text-align: center;
     margin: auto;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 /* ------------------------------------------------------------- */
@@ -153,6 +166,7 @@ header {
     text-align: center;
     align-self: center;
     margin: 0px;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 /* ------------------------------------------------------------- */
@@ -177,7 +191,13 @@ header {
     padding: 15px 32px;
     text-align: center;
     border-radius: 10%;
+    border-radius: 10px;
+    font-family: "Lucida Console", Courier, monospace;
 }
+
+.playAgain:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 
 .reset {
     width: 20%;
@@ -189,18 +209,22 @@ header {
     color: black;
     padding: 15px 32px;
     text-align: center;
-    border-radius: 10%;
+    border-radius: 10px;
+    font-family: "Lucida Console", Courier, monospace;
 }
+
+.reset:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 
 /* ------------------------------------------------------------- */
 
 .hide {
     height: 0px;
-    margin: 0px;
     border: 0px;
     padding: 0px;
     font-size: 0px;
     transition-timing-function: ease-in-out;
-    transition-duration: 3s;
-    transition-property: height, margin, font-size;
+    transition-duration: 2s;
+    transition-property: height, font-size;
 }
