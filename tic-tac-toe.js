@@ -88,16 +88,17 @@ function switchSetupGame() {
         }
     });
 
-    const playerIconArrays = [player1Icon,player2Icon];
+    const playerIconArrays = [[player1Icon,player1Image],[player2Icon,player2Image]];
 
-    playerIconArrays.forEach(playerIcon => {
+    playerIconArrays.forEach(playerIconArray => {
 
-        player1Image.style.background = `url(${playerIcon})`;
-        player1Image.style.backgroundSize = 'contain';
-        player1Image.style.backgroundRepeat = "no-repeat";
-        player1Image.style.backgroundPosition= "center";
+        playerIconArray[1].style.background = `url(${playerIconArray[0]})`;
+        playerIconArray[1].style.backgroundSize = 'contain';
+        playerIconArray[1].style.backgroundRepeat = "no-repeat";
+        playerIconArray[1].style.backgroundPosition= "center";
     });
 }
+
 
 
 IconButtons.forEach(IconButton => {
