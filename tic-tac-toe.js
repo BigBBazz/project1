@@ -76,8 +76,6 @@ function switchSetupGame() {
     const playerChilds = players.children;
     const endButtonChilds = endButtons.children
 
-
-
     const sectionArrays = [setupInterfaceChilds,setupParentChilds,gameInterfaceChilds,gridChilds,trackingInterfaceChilds,playerChilds,endButtonChilds];
 
     sectionArrays.forEach(array => {
@@ -138,27 +136,20 @@ const rounds = document.querySelector('.rounds');
 const message = document.querySelector('.message');
 const player1WinsTrack = document.querySelector('#player1tracker');
 const player2WinsTrack = document.querySelector('#player2tracker');
+const winnerArrays = [[1,2,3],[1,5,9],[1,4,7],[2,5,8],[3,6,9],[3,5,7],[4,5,6],[7,8,9]];
 
 
 let player1WinNum = 0;
-
 let player2WinNum = 0;
-
 let roundCounter = 0;
-
 let totalRoundCounter = 0;
-
 let player1Selections = [];
-
 let player2Selections = [];
-
-const winnerArrays = [[1,2,3],[1,5,9],[1,4,7],[2,5,8],[3,6,9],[3,5,7],[4,5,6],[7,8,9]];
-
 let buttonNumber = 1;
 
 
 
-buttons.forEach(button => {
+buttons.forEach(button => { //
 
     button.setAttribute('data-gridNumber',buttonNumber);
     buttonNumber++;

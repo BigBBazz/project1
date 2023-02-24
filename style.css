@@ -23,6 +23,9 @@ html, body {
 
 header {
     text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 10px;
 }
 
 .setup-title {
@@ -31,10 +34,28 @@ header {
     margin: 0 auto;
 }
 
+.setup-interface {
+    text-align: center;
+}
+
 .readyToPlay {
     text-align: center;
     height: 80px;
+    margin: 0;
+    background-color: coral;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    border-radius: 10%;
 }
+  
+  .readyToPlay:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    font-size: 15px;
+  }
+
+  /* ------------------------------------------------------------- */
+
 
 .setup-parent {
     display: flex;
@@ -42,9 +63,9 @@ header {
     justify-content: center;
     align-items: center;
     height: 800px;
-    padding:5%;
+    padding: 0 5% 5% 5%;
     margin: auto;
-    transition-delay: 250ms;  
+    transition-delay: 250ms; 
 }
 
 .material-icons {
@@ -150,11 +171,12 @@ header {
     font-size: 20px;
     margin: auto;
     visibility: hidden;
-    background-color: #4CAF50; /* Green */
+    background-color: coral;
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
+    border-radius: 10%;
 }
 
 .reset {
@@ -162,11 +184,12 @@ header {
     font-size: 20px;
     margin: auto;
     visibility: hidden;
-    background-color: #4CAF50; /* Green */
+    background-color: coral;
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
+    border-radius: 10%;
 }
 
 /* ------------------------------------------------------------- */
