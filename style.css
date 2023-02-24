@@ -76,50 +76,32 @@ header {
     width: 30%;
 }
 
-.tracking-interface {
+/* ------------------------------------------------------------- */
 
+.tracking-interface {
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: center;
     margin: auto;
+    flex-direction: column;
+
 }
 
 .message {
-    height: 50px;
-    width: 90px;
+    width: 20%;
     font-size: 20px;
     text-align: center;
     margin: auto;
 }
 
-.player1image {
-    height: 50px;
-    width: 90px;
-    visibility: visible;
-    padding: 0px;
-    border: 0px;
-}
-
-.player2image {
-    height: 50px;
-    width: 90px;
-    visibility: visible;
-    padding: 0px;
-    border: 0px;
-}
-
-
-.winTracker {
-    height: 50px;
-    width: 160px;
-    font-size: 20px;
-    visibility: visible;
-}
-
-
 .rounds {
-    height: 50px;
-    width: 150px;
+    width: 20%;
     font-size: 20px;
-    visibility: hidden;
+    text-align: center;
+    margin: auto;
 }
+
+/* ------------------------------------------------------------- */
 
 .players {
     height: 150px;
@@ -129,6 +111,30 @@ header {
     justify-content: center;
     margin: auto;
 }
+
+.player1image {
+    width: 10%;
+    visibility: visible;
+    padding: 0px;
+    border: 0px;
+}
+
+.player2image {
+    width: 10%;
+    visibility: visible;
+    padding: 0px;
+    border: 0px;
+}
+
+.winTracker {
+    width: 10%;
+    font-size: 20px;
+    text-align: center;
+    align-self: center;
+    margin: 0px;
+}
+
+/* ------------------------------------------------------------- */
 
 .endButtons {
     height: 5%;
@@ -162,6 +168,8 @@ header {
     padding: 15px 32px;
     text-align: center;
 }
+
+/* ------------------------------------------------------------- */
 
 .hide {
     height: 0px;

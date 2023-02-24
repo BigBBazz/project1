@@ -9,7 +9,7 @@
 // Latest edit date:
 // =====================================
 
-// ============= Phase 1 Code ==================
+// ============= Player setup Code ==================
 
 const setupInterface = document.querySelector('.setup-interface');
 const setupParent = document.querySelector('.setup-parent');
@@ -34,6 +34,11 @@ function randomNumberFunc() {
 function handleUserIconClick(event) {
 
     let IcondClicked = event.target;
+
+    if (clickEventIndicator>2) {
+
+        return;
+    }
 
     IcondClicked.style.height= "30%";
 
@@ -60,13 +65,7 @@ function handleUserIconClick(event) {
     clickEventIndicator++;
 }
 
-
-function handleUserHideClick() {
-
-    if (clickEventIndicator<2){
-
-        return
-    }
+function switchSetupGame() {
 
     const setupInterfaceChilds = setupInterface.children;
     const setupParentChilds = setupParent.children; 
@@ -89,15 +88,15 @@ function handleUserHideClick() {
         }
     });
 
-    player1Image.style.background = `url(${player1Icon})`;
-    player1Image.style.backgroundSize = 'contain';
-    player1Image.style.backgroundRepeat = "no-repeat";
-    player1Image.style.backgroundPosition= "center";
+    const playerIconArrays = [player1Icon,player2Icon];
 
-    player2Image.style.background = `url(${player2Icon})`;
-    player2Image.style.backgroundSize = 'contain';
-    player2Image.style.backgroundRepeat = "no-repeat";
-    player2Image.style.backgroundPosition= "center";
+    playerIconArrays.forEach(playerIcon => {
+
+        player1Image.style.background = `url(${playerIcon})`;
+        player1Image.style.backgroundSize = 'contain';
+        player1Image.style.backgroundRepeat = "no-repeat";
+        player1Image.style.backgroundPosition= "center";
+    });
 }
 
 
@@ -110,16 +109,21 @@ IconButtons.forEach(IconButton => {
 });
 
 
-readyToPlayButton.addEventListener('click', (event) => {
+readyToPlayButton.addEventListener('click', () => {
 
-    handleUserHideClick(event);   
+    if (clickEventIndicator<2){
+
+        return
+    }
+
+    switchSetupGame();  
 })
 
 
 
 
 
-// ============= Phase 2 Code ==================
+// ============= Gameplay Code ==================
 
 const gameInterface = document.querySelector('.game-interface');
 const grid = document.querySelector('.grid-parent');
@@ -350,15 +354,13 @@ playAgainButton.addEventListener('click', () => {
 
 resetButton.addEventListener('click', () => {
 
-    handleUserHideClick();
+    switchSetupGame();
     
     roundCounter = 0;
     player1WinNum = 0;
     player2WinNum = 0;
     player1Selections.length = 0;
     player2Selections.length = 0;
-    // player1WinsTrack.textContent = `Player 1 wins: ${player1WinNum}`;
-    // player2WinsTrack.textContent = `Player 2 wins: ${player2WinNum}`;
     buttonNumber == 1;
     randomNumber = null;
     clickEventIndicator = 0;
