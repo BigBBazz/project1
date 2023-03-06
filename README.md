@@ -2,9 +2,9 @@
 
 To play the game [click here](https://bigbbazz.github.io/project1/)
 
-To view the wireframe [click here](https://whimsical.com/tic-tac-toe-wireframe-Ay9LEvSSwmaQJgogJqu3mE)
+To view the wireframe [click here]
 
-To view the flow-chart [click here](https://whimsical.com/tic-tac-toe-QBMr1vPh4ibRfST4nXXFDE)
+To view the flow-chart [click here]
 
 ## Technologies
 
@@ -22,7 +22,7 @@ Project Managment: Excel, whimsical.com
 
 **Step 3:** Created wireframe and flow-chart using whimsical.com
 
-**Step 4:** 
+**Step 4:** Started coding JS with minimum CSS
 
 
 
